@@ -1,0 +1,72 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 06/06/2017 15:24
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon/Flaticon.eot");
+  src: url("./Flaticon/Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon/Flaticon.woff") format("woff"),
+       url("./Flaticon/Flaticon.woff2") format("woff2"),
+       url("./Flaticon/Flaticon.ttf") format("truetype"),
+       url("./Flaticon/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon/Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+        font-size: 20px;
+font-style: normal;
+margin-left: 20px;
+}
+
+.flaticon-run:before { content: "\f100"; }
+.flaticon-category-cardio:before { content: "\f101"; }
+.flaticon-category-cardio-1:before { content: "\f102"; }
+.flaticon-run-2:before { content: "\f103"; }
+.flaticon-exercise-1:before { content: "\f104"; }
+.flaticon-cardio-1:before { content: "\f105"; }
+.flaticon-category-abs-1:before { content: "\f106"; }
+.flaticon-category-legs-1:before { content: "\f107"; }
+.flaticon-gymnast-posture:before { content: "\f108"; }
+.flaticon-gymnast-practice:before { content: "\f109"; }
+.flaticon-category-triceps:before { content: "\f10a"; }
+.flaticon-shoulders-1:before { content: "\f10b"; }
+.flaticon-abs-2:before { content: "\f10c"; }
+.flaticon-bideps-1:before { content: "\f10d"; }
+.flaticon-people-3:before { content: "\f10e"; }
+.flaticon-gym-5:before { content: "\f10f"; }
+.flaticon-gym-4:before { content: "\f110"; }
+.flaticon-triceps:before { content: "\f111"; }
+.flaticon-category-pectoral:before { content: "\f112"; }
+.flaticon-category-biceps:before { content: "\f113"; }
+.flaticon-man:before { content: "\f114"; }
+.flaticon-gym-3:before { content: "\f115"; }
+.flaticon-silhouette:before { content: "\f116"; }
+.flaticon-category-legs:before { content: "\f117"; }
+.flaticon-people-2:before { content: "\f118"; }
+.flaticon-people-1:before { content: "\f119"; }
+.flaticon-gym-2:before { content: "\f11a"; }
+.flaticon-category-shoulders:before { content: "\f11b"; }
+.flaticon-people:before { content: "\f11c"; }
+.flaticon-cardio:before { content: "\f11d"; }
+.flaticon-gym-1:before { content: "\f11e"; }
+.flaticon-gym:before { content: "\f11f"; }
+.flaticon-exercise:before { content: "\f120"; }
+.flaticon-man-lifting-weights:before { content: "\f121"; }
+.flaticon-category-legs-2:before { content: "\f122"; }
+.flaticon-weightlifting-1:before { content: "\f123"; }
+.flaticon-dumbbells-exercise:before { content: "\f124"; }
+.flaticon-category-abs:before { content: "\f125"; }
+.flaticon-stretching-exercises:before { content: "\f126"; }
+.flaticon-weightlifting:before { content: "\f127"; }

@@ -1,0 +1,156 @@
+
+Skip to content
+Features
+Business
+Explore
+Pricing
+This repository
+Sign in or Sign up
+
+2
+0
+
+    0
+
+syscover/docs
+Code
+Issues 0
+Pull requests 0
+Projects 0
+Pulse
+Graphs
+docs/gitignore.txt
+6a371c7 on 19 Oct 2016
+@carlospalacin carlospalacin minor fix
+executable file 126 lines (108 sloc) 1.83 KB
+# -- Web --------------------------------------------
+/public/packages/
+
+# -- Pulsar -----------------------------------------
+/config/api.php
+/config/projects.php
+/config/facturaDirecta.php
+/config/cms.php
+/config/crm.php
+/config/comunik.php
+/config/cron.php
+/config/forms.php
+/config/hotels.php
+/config/spas.php
+/config/wineries.php
+/config/vinipad.php
+/config/booking.php
+/config/navTools.php
+/config/shoppingCart.php
+/config/market.php
+/config/pulsar.php
+/config/googleApi.php
+/config/excel.php
+
+/tests/shopping_cart_tests_helpers/
+/tests/ShoppingCartProviderTest.php
+/tests/PulsarTest.php
+
+/database/factories/PulsarModelFactory.php
+
+/resources/lang/en/validation.php
+/resources/lang/es/validation.php
+
+/storage/exports/
+
+# -- Angular -----------------------------------------
+/node_modules/*
+/typings/*
+/bower_components/*
+
+# -- Laravel -----------------------------------------
+Homestead.yaml
+Homestead.json
+.env
+!/database/
+/database/migrations/*
+!/database/migrations/
+/database/seeds/*
+!/database/seeds/
+
+# -- Composer -----------------------------------------
+composer.phar
+composer.lock
+composer.server.lock
+/vendor/
+
+# -- Sistemas Operativos ------------------------------
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+!.gitignore
+!.gitkeep
+*~
+
+# Mac OS X
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# -- Editores -----------------------------------------
+# vs code
+.vscode
+
+# vim
+.*.sw[a-z]
+*.un~
+Session.vim
+.netrwhist
+
+# eclipse
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+.externalToolBuilders/
+*.launch
+.buildpath
+
+# phpstorm
+.idea/
+
+# textmate
+*.tmproj
+*.tmproject
+tmtags
+
+# sublimetext
+/*.sublime-project
+*.sublime-workspace
+
+# netbeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+    Contact GitHub API Training Shop Blog About 
+
+    © 2017 GitHub, Inc. Terms Privacy Security Status Help 
+

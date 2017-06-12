@@ -1,0 +1,16 @@
+/*------------------------------------*/
+/*              REGULAR               */
+/*------------------------------------*/
+
+/* -----    REGULAR    ------*/
+@font-face {
+    font-family: 'boogaloo';
+    src:    url('./Boogaloo/Boogaloo-Regular.eot?#iefix') format('embedded-opentype'),
+            url('./Boogaloo/Boogaloo-Regular.woff') format('woff'),
+            url('./Boogaloo/Boogaloo-Regular.woff2') format('woff2'),
+            url('./Boogaloo/Boogaloo-Regular.ttf')  format('truetype'),
+            url('./Boogaloo/Boogaloo-Regular.svg#Boogaloo') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+}

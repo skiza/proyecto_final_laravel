@@ -1,0 +1,9 @@
+NACHO 25/04/2017 13:00
+He hecho un formulario de registro con todos los campos. Lo más seguro es que alguna cosa que este mal hecha o algo que
+no haya tenido en cuenta. Por si sirve y puede ser usado o reciclado lo dejo junto al creado por el comando make:auth
+Lo nombre NachoRegister.blade.php
+
+-----------------------------------------------------
+
+NACHO 04/05/2017 12:00
+He adaptado el proyecto de testing y esta exactamente igual que este, con los mismos migrations, seeders, etc
