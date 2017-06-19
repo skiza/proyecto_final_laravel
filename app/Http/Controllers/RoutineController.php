@@ -21,16 +21,45 @@ class RoutineController extends Controller
     {
         $top_10_likes = Routine::orderBy('likes', 'desc')->where('privacy_id', '=', 1)->limit(10)->get();
         $top_10_created= Routine::orderby('created_at','desc')->where('privacy_id','=',1)->limit(10)->get();
+        $categories = Category::all();
         
         $response = [
             'top_10_likes'     => $top_10_likes,
-            'top_10_created'   => $top_10_created
+            'top_10_created'   => $top_10_created,
+            'categories'        => $categories
         ];
         
         //dd($response);
         
         return view('www.content.routine.top',$response);
     }
+    
+    
+     /**
+     * Display a listing of the routine by category
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        $categories = Category::all();
+        
+        $category_id = $request->category_id;
+        
+        $category = Category::find($category_id);
+        
+        $routines = $category->routine()->where('privacy_id' , '1')->get();
+      
+        
+        
+        $response = [
+            'routines'          => $routines, 
+            'categories'        =>$categories
+        ];
+        
+        return view('www.content.routine.search',$response);
+    }
+    
     
     /**
      * Display a listing of the routine.
@@ -50,7 +79,10 @@ class RoutineController extends Controller
         
         return view('www.content.routine.index',$response);
     }
-
+    
+    
+    
+    
     /**
      * Show the form for creating a new routine.
      *
@@ -547,9 +579,11 @@ class RoutineController extends Controller
         $routine =  Routine::find($routine_id);
         
         // compruebo si es el propietario de la rutina
-        if($check = $this->routineOwner($routine_id))
-        {
-            return $check;
+            
+        if($routine){
+            if($routine->user_id != auth()->id() && ($routine->privacy->name['en']) == 'Private'){
+                return redirect( nt_route('routine_user-'.user_lang()) ) -> with('action_status' , 'Acción denegada');
+            }
         }
         
         $response = [

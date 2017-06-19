@@ -48,7 +48,7 @@ return [
     'workout' => 'Workout',
     'delete' => 'Delete',
     'new_routine' => 'New routine',
-    'priv_mess' => ' If you select public, this routine will be available for others users and you won´t can make changes in it in the future. ',
+    'priv_mess' => ' If you select public, this routine will be available for others users.',
     'add_routine' => 'Add routine',
     'edit_routine_info' => "Edit Routine Info",
     'add_workouts' => "Add workout",
@@ -57,6 +57,7 @@ return [
     'add' => 'Add',
     'remove' => 'Remove',
     'user_routine_category' => 'Category',
+    'done' => 'Done',
 
 
    //Header
@@ -75,6 +76,7 @@ return [
    'friday' => 'Friday',
    'saturday' => 'Saturday',
    'sunday' => 'Sunday',
+   'ar' => 'Add/Remove',
 
     // Top ten
     'author' => 'Author',

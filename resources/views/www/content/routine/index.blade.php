@@ -17,15 +17,15 @@
         </div>    
         @endif
     </div>
- <table class="table table-sdiviped bg_white box_shadow">
+ <table class="table table-sdiviped bg_white box_shadow table-responsive">
         <thead class="labelead-inverse">
            <tr>
             <th>{{ trans('web.name') }}</th>
             <th class="hidden-sm-down">{{ trans('web.description') }}</th>
-            <th>{{ trans('web.categories') }}</th>
+            <th class="hidden-sm-down">{{ trans('web.categories') }}</th>
             <th class="text-center">{{ trans('web.workout') }}</th>
             <th class="text-center hidden-lg-down">Likes</th>
-            <th class="text-center hidden-md-down">{{ trans('web.delete') }}</th>
+            <th class="text-center hidden-sm-down">{{ trans('web.delete') }}</th>
            </tr>
         </thead>
         <tbody>
@@ -37,7 +37,7 @@
                     </a>
                 </td>
                 <td class="hidden-sm-down">{{ $routine -> description}} </td>
-                <td>
+                <td class="hidden-sm-down">
                     @foreach ( $routine -> categories as $category )
                         <button class="btn bg_cat_{{ $category->id }}" data-toggle="collapse">
                             {{ $category->name[user_lang()] }}
@@ -50,7 +50,7 @@
                 <td class="text-center hidden-lg-down">
                     {{ count($routine->likes) }}
                 </td>
-                <td class="delete text-center hidden-md-down" data-id="{{  $routine -> id }}" data-action="delete" data-url="{{ nt_route('routine_delete-'.user_lang(),['id_routine' => $routine->id ]) }} ">
+                <td class="delete text-center " data-id="{{  $routine -> id }}" data-action="delete" data-url="{{ nt_route('routine_delete-'.user_lang(),['id_routine' => $routine->id ]) }} ">
                     <i class="material-icons">delete</i>
                 </td>               
              </tr>

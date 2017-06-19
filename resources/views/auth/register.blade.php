@@ -31,21 +31,21 @@
 <div class="container">
     <div class="row">
         
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <br>
-                <div class="panel-heading">{{ trans('web.register') }}</div>
-                <br>
+        <div class="col-12 col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
+            <div class="col-12 main__title">
+                <h1>{{ trans('web.register') }}</h1>
+            </div>
+            <div class="bg_white box_shadow padding-horizontal-20 padding-vertical-30 panel panel-default">
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
                         
                         
-                        <div class="form-group{{ $errors->has('alias') ? ' has-error' : '' }}">
-                            <label for="alias" class="col-md-4 control-label">{{ trans('web.name') }}</label>
+                        <div class="form-group row {{ $errors->has('alias') ? ' has-error' : '' }}">
+                            <label for="alias" class="col-lg-4 control-label">{{ trans('web.name') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <input id="alias" type="text" class="form-control" name="alias" value="{{ old('alias') }}" required autofocus>
 
                                 @if ($errors->has('alias'))
@@ -56,10 +56,10 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">{{ trans('web.email') }}</label>
+                        <div class="form-group row {{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="col-lg-4 control-label">{{ trans('web.email') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
 
                                 @if ($errors->has('email'))
@@ -70,10 +70,10 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">{{ trans('web.password') }}</label>
+                        <div class="form-group row {{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="col-lg-4 control-label">{{ trans('web.password') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
 
                                 @if ($errors->has('password'))
@@ -84,18 +84,18 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">{{ trans('web.confirm_password') }}</label>
+                        <div class="form-group row ">
+                            <label for="password-confirm" class="col-lg-4 control-label">{{ trans('web.confirm_password') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
                         
-                        <div class="form-group{{ $errors->has('age') ? ' has-error' : '' }}">
-                            <label for="age" class="col-md-4 control-label">{{ trans('web.born') }}</label>
+                        <div class="form-group row {{ $errors->has('age') ? ' has-error' : '' }}">
+                            <label for="age" class="col-lg-4 control-label">{{ trans('web.born') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <input type="date" class="form-control" name="age" value="{{ old('age') }}" min="1900-01-01" max="2017-01-01" required>
 
                                 @if ($errors->has('age'))
@@ -106,10 +106,10 @@
                             </div>
                         </div>
                         
-                         <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
-                            <label for="gender" class="col-md-4 control-label">{{ trans('web.gender') }}</label>
+                         <div class="form-group row {{ $errors->has('gender') ? ' has-error' : '' }}">
+                            <label for="gender" class="col-lg-4 control-label">{{ trans('web.gender') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                <label class="radio-inline"><input type="radio" name="gender" id='male' value='M' checked>{{ trans('web.man') }}</label>
                                 <label class="radio-inline"><input type="radio" name="gender" id='female' value='F'>{{ trans('web.woman') }}</label>
                                 <label class="radio-inline"><input type="radio" name="gender" id='no' value='PND'> {{ trans('web.pnd') }}</label>
@@ -123,10 +123,10 @@
                             </div>
                         </div>
                         
-                        <div class="form-group{{ $errors->has('height') ? ' has-error' : '' }}">
-                            <label for="height" class="col-md-4 control-label">{{ trans('web.height') }}</label>
+                        <div class="form-group row {{ $errors->has('height') ? ' has-error' : '' }}">
+                            <label for="height" class="col-lg-4 control-label">{{ trans('web.height') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <input id="height" type="number" class="form-control" name="height" min="140" max="215" value="{{ old('height') }}" autofocus onblur="checkHeight()">
 
                                 @if ($errors->has('height'))
@@ -137,10 +137,10 @@
                             </div>
                         </div>
                         
-                        <div class="form-group{{ $errors->has('weight') ? ' has-error' : '' }}">
-                            <label for="weight" class="col-md-4 control-label">{{ trans('web.weight') }}</label>
+                        <div class="form-group row {{ $errors->has('weight') ? ' has-error' : '' }}">
+                            <label for="weight" class="col-lg-4 control-label">{{ trans('web.weight') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <input id="weight" type="number" class="form-control" name="weight" min="40" max="200" value="{{ old('weight') }}" autofocus onblur="checkWeight()">
 
                                 @if ($errors->has('weight'))
@@ -151,10 +151,10 @@
                             </div>
                         </div>
                         
-                        <div class="form-group{{ $errors->has('privacy') ? ' has-error' : '' }}">
-                            <label for="privacy" class="col-md-4 control-label">{{ trans('web.perf_privacy') }}</label>
+                        <div class="form-group row {{ $errors->has('privacy') ? ' has-error' : '' }}">
+                            <label for="privacy" class="col-lg-4 control-label">{{ trans('web.perf_privacy') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                <label class="radio-inline"><input type="radio" name="privacy_id" id='public' value='1' checked>{{ trans('web.public') }}</label>
                                <label class="radio-inline"><input type="radio" name="privacy_id" id='private' value='2'>{{ trans('web.private') }}</label>
                                
@@ -168,8 +168,8 @@
                         </div>
                         
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                        <div class="form-group row ">
+                            <div class="col-lg-6 col-lg-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ trans('web.register') }}
                                 </button>

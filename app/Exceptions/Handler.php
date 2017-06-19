@@ -44,8 +44,8 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        if ($e instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
-            return redirect(route('404-'.user_lang()));
+        if ($exception instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
+            return redirect(nt_route('404-'.user_lang()));
         } 
         
         return parent::render($request, $exception);

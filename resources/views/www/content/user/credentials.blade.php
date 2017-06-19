@@ -49,7 +49,30 @@
             </form>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12" >
+            <a class="btn btn-danger delete_user"   href="{{ nt_route('user_delete-'.user_lang()) }}" >
+             <i class="material-icons">delete</i> Borrar cuenta
+            </a>
+        </div>
+    </div>
 </div>
 @endsection
 
-                
+@section('scripts')
+<script type="text/javascript">
+    $(function(){
+       
+        $('.delete_user').on('click', function(event){
+            
+            event.preventDefault();
+            
+            var response = confirm("Are you sure you want to delete?");
+            
+            if (response == true)   {  
+               window.location = $(this).attr('href');
+            }
+        });
+    });
+</script>    
+@endsection                

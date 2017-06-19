@@ -49,7 +49,25 @@
     <script src="{{ asset('vendor/jquery/js/jquery-3.2.1.min.js') }}"></script>
     <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-   
+     <script type="text/javascript">
+         $(function() {
+            $('#navbarSideButton').on('click', function() {
+                $('#navbarSide').addClass('reveal');
+            });
+          
+            // Open navbarSide when button is clicked
+              $('#navbarSideButton').on('click', function() {
+                $('#navbarSide').addClass('reveal');
+                $('.overlay').show();
+              });
+            
+              // Close navbarSide when the outside of menu is clicked
+              $('.overlay ,#close-side').on('click', function(){
+                $('#navbarSide').removeClass('reveal');
+                $('.overlay').hide();
+              });
+        });
+     </script>
      @yield('scripts')
     <!-- /CUSTOM SCRIPTS -->
 </body>

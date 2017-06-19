@@ -7,8 +7,76 @@
     }
  ?>
 <div class="container">
+<!-- mobile  navar -->   
+<nav class="" role="navigation">
+  <!-- other navbar code omitted -->
+  <div class="overlay"></div>
+    <!-- navbar-side go here -->
+    <ul class="navbar-side" id="navbarSide">
+     <li class="navbar-side-item text-center">
+         <a class="navbar-brand" href="{{ (Auth::guest())? nt_route(user_lang()) :nt_route('home-'.user_lang())  }}">
+            <img src="{{ asset('img/logo_fit-and-up.png') }}" class="logo" />
+        </a>
+        <span id="close-side"><i class="material-icons">close</i></span>
+     </li>
+    @if (Auth::guest())
+      <li class="navbar-side-item ">
+        <a class="side-link btn btn_nav " href="{{ route('login-'.user_lang()) }}"><i class="material-icons">person</i> Login <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="navbar-side-item ">
+        <a class="side-link btn  btn_nav " href="{{ route('register-'.user_lang()) }}"><i class="material-icons">person_add</i> {{ trans('web.register') }} <span class="sr-only">(current)</span></a>
+      </li>
+    @else
+      <li class="navbar-side-item">
+        <a class="side-link" href="{{ nt_route('calendar-'.user_lang()) }}" >
+          <i class="material-icons">today</i> {{ trans('web.calendar') }}
+        </a>
+      </li>
+      <li class="navbar-side-item ">
+        <span class="side-link">
+          <i class="material-icons">assignment</i> {{ trans('web.routine') }}
+        </span>
+        <div class="navbar-side-sub-item">
+          <a class="side-link" href="{{ nt_route('home-'.user_lang()) }}"> <i class="material-icons">assignment</i> {{ trans('web.routine') }}</a>                          
+          <a class="side-link" href="{{ nt_route('routine_user-'.user_lang()) }}"><i class="material-icons">assignment_ind</i> {{ trans('web.your_routines') }}</a>
+          <a class="side-link" href="{{ nt_route('routine_new-'.user_lang()) }}"><i class="material-icons">add_box</i> {{ trans('web.create_routine') }}</a>
+        </div>
+      </li>
+     <li class="navbar-side-item ">
+        <a class="side-link">
+          <i class="material-icons">person</i> {{ Auth::user()->alias }}
+        </a>
+        <div class="navbar-side-sub-item" >
+          <a class="side-link" href="{{ nt_route('profile-'.user_lang()) }}"><i class="material-icons">person</i> {{ trans('web.view_profile') }}</a>                          
+          <a class="side-link" href="{{ nt_route('edit_user-'.user_lang()) }}"><i class="material-icons">create</i>{{ trans('web.edit_profile') }}</a>
+          <a class="side-link" href="{{ nt_route('user_credentials-'.user_lang()) }}"><i class="material-icons">build</i> {{ trans('web.edit_account') }}</a>
+          <a class="side-link" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                   <i class="fa fa-power-off" aria-hidden="true"></i> Logout</a>
+                                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+        </div>
+      </li>
+    @endif
+    @if (!Auth::guard('admin')->check())
+      <li class="navbar-side-item lang text-center">
+          <a class="side-link" href="{{ nt_route(get_lang_route_name('es'),$nt_parameters) }}">
+            <img src="{{ asset('img/es.jpg')  }}"/>ESP
+          </a>
+          &nbsp;|&nbsp;
+          <a class="side-link" href="{{ nt_route(get_lang_route_name('en'),$nt_parameters) }}">
+            <img src="{{ asset('img/en.jpg')  }}"/>ENG
+          </a>
+       
+      </li>
+    @endif
+    </ul>
+</nav>
+<!-- desktop  navar -->  
 <nav class="navbar navbar-toggleable-md navbar-light main_menu" >
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler navbar-toggler-right" id="navbarSideButton" type="button">
     <i class="material-icons menu_btn">menu</i>
   </button>
 <!-- Branding Image -->

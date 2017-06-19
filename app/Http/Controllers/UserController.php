@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Privacy;
 use App\Routine;
+use App\DelUser;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -128,4 +130,49 @@ class UserController extends Controller
         return redirect(nt_route('home-'.user_lang()));
     }
     
+    public function deleteUser() {
+        $user = auth()->user();
+        $user->status_id = 3;
+        $user->save();
+        
+        $routines = Routine::where('user_id', $user->id)->get();
+        $routines = json_encode($routines);
+        
+        DelUser::insert(
+            [
+                'userID' => $user->id,
+                'alias' => $user->alias,
+                'email' => $user->email,
+                'password' => $user->password,
+                'age' => $user->age,
+                'gender' => $user->gender,
+                'weight' => $user->weight,
+                'height' => $user->height,
+                'privacy_id' => $user->privacy_id,
+                'status_id' => $user->status_id,
+                'stored_routines' => $routines
+            ]
+        );
+        
+        $user->delete();
+        
+        return $this->logout();
+    }
+    
+    
+    public function logout()
+    {
+        $this->guard()->logout();
+
+        request()->session()->flush();
+
+        request()->session()->regenerate();
+
+        return redirect('/');
+    }
+    
+     protected function guard()
+    {
+        return Auth::guard();
+    }
 }

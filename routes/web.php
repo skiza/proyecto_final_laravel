@@ -66,6 +66,15 @@ Route::group(['middleware' => ['pulsar.navTools'] ], function() {
     Route::get('es/404',             ['as' => '404-es',                        'uses' => function(){ return view('errors.404'); }]);
     Route::get('en/404',             ['as' => '404-en',                        'uses' => function(){ return view('errors.404'); }]);
 
+
+    Route::get('en/legal',                                                  ['as' =>'legal-en',                          'uses' => function(){ return view('legal_advice_en'); }]);
+    Route::get('en/contact',                                                ['as' =>'contact-en',                        'uses' => function(){ return view('contact_form'); }]);
+    Route::post('en/contact',                                               ['as' =>'contact_post-en',                   'uses' => 'ContactController@sendEmail']);
+    
+
+    Route::get('es/legal',                                                  ['as' =>'legal-es',                         'uses' => function(){ return view('legal_advice_es'); }]);
+    Route::get('es/contacto',                                               ['as' =>'contact-es',                       'uses' => function(){ return view('contact_form'); }]);
+    Route::post('es/contacto',                                              ['as' =>'contact_post-es',                  'uses' => 'ContactController@sendEmail']);
     
     // EN
     Route::get('en/login',           ['as' => 'login-en',                        'uses' => 'Auth\LoginController@showLoginForm']);
@@ -82,13 +91,7 @@ Route::group(['middleware' => ['pulsar.navTools'] ], function() {
 // auth required
 Route::group(['middleware' => ['pulsar.navTools' , 'auth'] ], function() {
     
-    // Route::get('/',                                                         ['as' => 'index',                           'uses' => function(){ return redirect()->route(user_lang()); }]);
-
-    
-    // Route::get('es',                                                        ['as' => 'es',                              'uses' => 'RoutineController@topTen']);
-    // Route::get('en',                                                        ['as' => 'en',                              'uses' => 'RoutineController@topTen']);
-    
-    
+ 
     // EN
     Route::get('en/home',                                                   ['as' => 'home-en',                         'uses' => 'RoutineController@topTen']);
 
@@ -105,7 +108,8 @@ Route::group(['middleware' => ['pulsar.navTools' , 'auth'] ], function() {
     Route::get('en/routine/new',                                            ['as' => 'routine_new-en',                  'uses' => 'RoutineController@showCreateForm']);
     Route::post('en/routine/new',                                           ['as' => 'routine_new_post-en',             'uses' => 'RoutineController@create']);
     Route::get('en/routine/like/{id_routine}',                              ['as' => 'routine_like-en',                 'uses' => 'RoutineController@like']);
-    
+    Route::get('en/routine/search',                                        ['as' => 'routine_search-en',               'uses' => 'RoutineController@search']);
+
     Route::get('en/routine/{id_routine}/start',                             ['as' => 'routine_start-en',                'uses' => 'RoutineController@start']);
 
     Route::get('en/routine/workout/remove/{id_rout}/{id_work}',             ['as' => 'routine_del_workout-en',          'uses' => 'RoutineController@removeWorkout']);
@@ -127,11 +131,10 @@ Route::group(['middleware' => ['pulsar.navTools' , 'auth'] ], function() {
     Route::get('en/calendar/edit/{id_day}',                                 ['as' => 'calendar_edit-en',                'uses' => 'DayController@edit']);
     Route::get('en/calendar/edit/{id_day}/{id_routine}',                    ['as' => 'calendar_edit_post-en',           'uses' => 'DayController@editPost']);
     
+    Route::get('es/user/delete',                                         ['as' => 'user_delete-en',                  'uses' => 'UserController@deleteUser']);
     
-    Route::get('en/legal',                                                  ['as' =>'legal-en',                          'uses' => function(){ return view('legal_advice_en'); }]);
-    Route::get('en/contact',                                                ['as' =>'contact-en',                        'uses' => function(){ return view('contact_form'); }]);
-    Route::post('en/contact',                                               ['as' =>'contact_post-en',                   'uses' => 'ContactController@sendEmail']);
     
+   
     
     // ES
     Route::get('es/inicio',                                                 ['as' => 'home-es',                         'uses' => 'RoutineController@topTen']);
@@ -148,6 +151,7 @@ Route::group(['middleware' => ['pulsar.navTools' , 'auth'] ], function() {
     Route::get('es/rutina/nueva',                                           ['as' => 'routine_new-es',                  'uses' => 'RoutineController@showCreateForm']);
     Route::post('es/rutina/nueva',                                          ['as' => 'routine_new_post-es',             'uses' => 'RoutineController@create']);
     Route::get('es/rutina/like/{id_routine}',                               ['as' => 'routine_like-es',                 'uses' => 'RoutineController@like']);
+    Route::get('es/rutina/buscar',                                         ['as' => 'routine_search-es',                'uses' => 'RoutineController@search']);
 
     Route::get('es/rutina/{id_routine}/start',                              ['as' => 'routine_start-es',                'uses' => 'RoutineController@start']);
 
@@ -171,9 +175,9 @@ Route::group(['middleware' => ['pulsar.navTools' , 'auth'] ], function() {
     Route::get('es/calendario/editar/{id_day}',                             ['as' => 'calendar_edit-es',                'uses' => 'DayController@edit']);
     Route::get('es/calendario/editar/{id_day}/{id_routine}',                ['as' => 'calendar_edit_post-es',           'uses' => 'DayController@editPost']);
     
-    Route::get('es/legal',                                                  ['as' =>'legal-es',                         'uses' => function(){ return view('legal_advice_es'); }]);
-    Route::get('es/contacto',                                               ['as' =>'contact-es',                       'uses' => function(){ return view('contact_form'); }]);
-    Route::post('es/contacto',                                              ['as' =>'contact_post-es',                  'uses' => 'ContactController@sendEmail']);
+    Route::get('es/usuario/borrar',                                         ['as' => 'user_delete-es',                  'uses' => 'UserController@deleteUser']);
+    
+
     
     
 });

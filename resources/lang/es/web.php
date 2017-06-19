@@ -48,7 +48,7 @@ return [
     'workout' => 'Ejercicios',
     'delete' => 'Borrar',
     'new_routine' => 'Nueva rutina', 
-    'priv_mess' => ' Si seleccionas "Publica" ya no podras editar o borrar esta rutina y estará disponible para otros usuarios.',
+    'priv_mess' => ' Si seleccionas "Publica" estará disponible para otros usuarios.',
     'add_routine' => 'Añadir rutina',
     'edit_routine_info' => "Editar informacion",
     'add_workouts' => "Añadir ejercicios", 
@@ -57,6 +57,7 @@ return [
     'add' => 'Añadir',
     'remove' => 'Quitar',
     'user_routine_category' => 'Categoria',
+    'done' => 'Hecho',
    
    
    //Header
@@ -75,6 +76,7 @@ return [
    'friday' => 'Viernes',
    'saturday' => 'Sábado',
    'sunday' => 'Domingo',
+   'ar' => 'Añadir/Quitar',
    
        // Top ten
    'author' => 'Autor',

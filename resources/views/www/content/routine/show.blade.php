@@ -7,17 +7,15 @@
     <div class="row">
         <div class="col-12 main__title">
             <h1>{{ trans('web.routine') }} {{ $routine->name }}</h1>
-            @if( $routine->user->id == auth()->id() )
                 @if( count($routine->workout) == 0 )
                           <a href="{{ nt_route('routine_add_workout_1-'.user_lang(),['id_routine' => $routine->id]) }}" class="btn_add"
                             aria-hidden="true" data-container="body" data-toggle="popover" data-trigger="hover" tabindex="0" data-placement="left" data-content="add Workouts"
                             ><i class="material-icons">add_circle</i></a>
-                @else
+                @elseif( $routine->user->id == auth()->id() || $routine->privacy->name['en'] == 'Public' )
                     <a href="{{ nt_route('routine_start-'.user_lang(),['id_routine' => $routine->id]) }}" class="btn_add"
                             aria-hidden="false" data-container="body" data-toggle="popover" data-trigger="hover" tabindex="0" data-placement="left" data-content="Start Routine"
                             ><i class="material-icons start">play_circle_filled</i></a>
                 @endif
-            @endif
             <a href="{{ nt_route('routine_user-'.user_lang()) }}" class="btn_back"><i class="fa fa-arrow-left" aria-hidden="true"></i></a> 
         </div>
     </div>
@@ -35,7 +33,7 @@
             <table class="table table-sdiviped">
                 @if($routine->user->id != auth()->id())
                 <tr>
-                    <th>Autor</th>
+                    <th>{{ trans('web.author') }}</th>
                     <td>{{ $routine -> user-> alias}}</td>
                 </tr>
                 @endif
