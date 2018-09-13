@@ -67,11 +67,7 @@ executable file 126 lines (108 sloc) 1.83 KB
 Homestead.yaml
 Homestead.json
 .env
-!/database/
-/database/migrations/*
-!/database/migrations/
-/database/seeds/*
-!/database/seeds/
+
 
 # -- Composer -----------------------------------------
 composer.phar
